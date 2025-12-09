@@ -1,0 +1,98 @@
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; 
+  background: url("https://picsum.photos/1600/900") center/cover no-repeat fixed;
+  font-family: "Arial", sans-serif;
+  color: #fff;
+  padding: 40px 20px;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  pointer-events: none;
+  z-index: 0;
+}
+
+
+.container {
+  position: relative;
+  z-index: 1;                  
+  width: 100%;
+  max-width: 900px;            
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin: 0 auto;
+}
+
+
+.glass {
+  background: rgba(255, 255, 255, 0.06);  
+  border-radius: 12px;
+  padding: 28px 30px;
+  backdrop-filter: blur(12px) saturate(120%);
+  -webkit-backdrop-filter: blur(8px) saturate(120%);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255,255,255,0.08); 
+  color: #fff;
+  overflow: hidden;
+}
+
+
+.glass.card:first-child {
+  padding: 30px 36px;
+  border-radius: 14px;
+}
+
+
+.card h1 {
+  font-size: 34px;
+  margin: 0 0 8px 0;
+  line-height: 1.05;
+}
+
+.card h2 {
+  font-size: 24px;
+  margin: 0 0 12px 0;
+}
+
+/* PARAGRAPH & LISTS */
+.card p {
+  color: rgba(255,255,255,0.92);
+  line-height: 1.55;
+  margin: 0;
+  font-size: 15px;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+ul li {
+  margin-bottom: 8px;
+  color: rgba(255,255,255,0.95);
+  font-size: 15px;
+}
+
+/* make sure long paragraphs wrap nicely and don't create huge height */
+.card p, .card ul {
+  word-break: break-word;
+}
+
+/* spacing on smaller screens */
+@media (max-width: 640px) {
+  body { padding: 20px 12px; }
+  .container { gap: 18px; max-width: 100%; }
+  .glass { padding: 20px; border-radius: 10px; }
+  .card h1 { font-size: 26px; }
+  .card h2 { font-size: 20px; }
+}
